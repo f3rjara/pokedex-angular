@@ -1,1 +1,21 @@
 <app-navbar [titleNav]="titleNav"></app-navbar>
+
+<main class="main">
+  <article class="article-pokedex">
+    <section class="pokemon">
+      <h1 class="pokemon__name">{{ pokemonName }}</h1>
+      <img
+        class="pokemon__image"
+        [src]="pokemon.image"
+        [alt]="pokemon.name"
+        width="450"
+        height="450" />
+    </section>
+    <section class="pokemon--card">
+      <app-card-features
+        *ngIf="pokemon.features"
+        [featuresPokemon]="pokemon.features">
+      </app-card-features>
+    </section>
+  </article>
+</main>
