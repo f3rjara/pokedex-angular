@@ -8,6 +8,10 @@ import { PokemonFeatures } from '@interfaces/pokemon.interface';
   encapsulation: ViewEncapsulation.None,
 })
 export class CardFeaturesComponent {
-  @Input() featuresPokemon!: PokemonFeatures[];
+  @Input() featuresPokemon: PokemonFeatures[] = [
+    { featureTitle: 'Height', featureValue: '10cm' },
+    { featureTitle: 'Weight', featureValue: '20kg' },
+    { featureTitle: 'Type', featureValue: 'Fire' },
+  ];
   constructor() {}
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { PokemonFeatures } from '@interfaces/pokemon.interface';
 
 @Component({
@@ -8,6 +8,9 @@ import { PokemonFeatures } from '@interfaces/pokemon.interface';
   encapsulation: ViewEncapsulation.None,
 })
 export class FeatureItemComponent {
-  @Input() feature!: PokemonFeatures;
+  @Input() feature: PokemonFeatures = {
+    featureTitle: 'Height',
+    featureValue: '1.2m',
+  };
   constructor() {}
 }
