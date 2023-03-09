@@ -1,6 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FeatureItemComponent } from '../feature-item/feature-item.component';
 import { CardFeaturesComponent } from './card-features.component';
 import { PokemonFeatures } from '@interfaces/pokemon.interface';
 import { By } from '@angular/platform-browser';
@@ -17,7 +17,8 @@ describe('CardFeaturesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CardFeaturesComponent, FeatureItemComponent],
+      declarations: [CardFeaturesComponent],
+      imports: [HttpClientModule],
     }).compileComponents();
   });
 
@@ -46,8 +47,10 @@ describe('CardFeaturesComponent', () => {
   it('should render correct number of feature item components', () => {
     component.featuresPokemon = features;
     fixture.detectChanges();
-    const featureItems =
-      fixture.nativeElement.querySelectorAll('app-feature-item');
+    // select card-features__item elements
+    const featureItems = fixture.debugElement.queryAll(
+      By.css('.card-features__item')
+    );
     expect(featureItems.length).toBe(features.length);
   });
 
@@ -55,15 +58,21 @@ describe('CardFeaturesComponent', () => {
     component.featuresPokemon = features;
     fixture.detectChanges();
 
-    const featureItemDebugElements = fixture.debugElement.queryAll(
-      By.directive(FeatureItemComponent)
+    // select card-features__item elements
+    const featureItemElements = fixture.debugElement.queryAll(
+      By.css('.card-features__item')
     );
-    expect(featureItemDebugElements.length).toEqual(features.length);
 
-    featureItemDebugElements.forEach((debugElement: any, i: any) => {
-      const featureItemComponent = debugElement.componentInstance;
-      expect(featureItemComponent).toBeTruthy();
-      expect(featureItemComponent.feature).toEqual(features[i]);
+    expect(featureItemElements.length).toEqual(features.length);
+
+    featureItemElements.forEach((featureItemElement, index) => {
+      const featureTitle = featureItemElement.query(By.css('.features__title'))
+        .nativeElement.textContent;
+      const featureValue = featureItemElement.query(By.css('.features__data'))
+        .nativeElement.textContent;
+
+      expect(featureTitle).toEqual(features[index].featureTitle);
+      expect(featureValue).toEqual(features[index].featureValue);
     });
   });
 });

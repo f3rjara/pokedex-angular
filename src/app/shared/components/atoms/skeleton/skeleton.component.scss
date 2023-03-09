@@ -14,6 +14,7 @@
     border-radius: 20px;
     background-color: rgba($color: _vars.$black, $alpha: .05);
     transition: transform .5s ease-in-out, box-shadow .5s ease-in-out;
+    min-height: 80px;
     &:hover {
       transform: translateY(-5px);
       box-shadow: 10px 10px 20px rgba($color: _vars.$black, $alpha: .04);
@@ -23,22 +24,20 @@
       justify-content: space-between;
       align-items: center;
     }
+    &--skeleton {
+      background: #f6f7f8;
+      background-position: -800px 0;
+      animation: skeletonShine 1s linear 0s infinite normal forwards;
+      background-image: linear-gradient(135deg, #f6f7f8 0%, #e5e5e5 20%, #f6f7f8 40%, #f6f7f8 100%);
+      background-repeat: no-repeat;
+      background-size: 1000px 100%;
+    }
   }
 }
 
-.features {
-  &__title {
-    font-size: .9em;
-    text-transform: uppercase;
-    color: rgba($color: _vars.$black, $alpha: .7);
-    font-family: _vars.$font-body;
-    font-weight: 500;
-  }
-  &__data {
-    font-size: 1.5em;
-    margin: .3em 0;
-    font-family: _vars.$font-title;
-    color: _vars.$secondary-color;
-    text-transform: uppercase;
+
+@keyframes skeletonShine {
+  to {
+    background-position: 800px 0;
   }
 }

@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-/* Components */
+import { RouterModule } from '@angular/router';
 /* Modules */
-import { NavbarModule } from '@shared/components/organims/navbar/navbar.module';
-
 import { PokedexRoutingModule } from './pokedex-routing.module';
 import { HomeComponent } from './pages/home/home.component';
-import { RouterModule } from '@angular/router';
+import { NavbarModule } from '@shared/components/organims/navbar/navbar.module';
+import { SkeletonModule } from '@shared/components/atoms/skeleton/skeleton.module';
+/* Components */
 import { CardFeaturesComponent } from './components/card-features/card-features.component';
-import { FeatureItemComponent } from './components/feature-item/feature-item.component';
 
 @NgModule({
-  declarations: [HomeComponent, CardFeaturesComponent, FeatureItemComponent],
-  imports: [CommonModule, PokedexRoutingModule, NavbarModule, RouterModule],
+  declarations: [HomeComponent, CardFeaturesComponent],
+  imports: [
+    CommonModule,
+    PokedexRoutingModule,
+    NavbarModule,
+    RouterModule,
+    SkeletonModule,
+  ],
 })
 export class PokedexModule {}

@@ -1,41 +1,42 @@
 export const getTypeWithName = (type: string | number, name: string) => {
   // generate one emoki for each type pokeon and add name
+  type = type.toString().toLowerCase();
   switch (type) {
-    case 'Fire':
+    case 'fire':
       return `🔥 ${name}`;
-    case 'Water':
+    case 'water':
       return `💧 ${name}`;
-    case 'Grass':
+    case 'grass':
       return `🌱 ${name}`;
-    case 'Poison':
+    case 'ooison':
       return `☠️ ${name}`;
-    case 'Electric':
+    case 'electric':
       return `⚡ ${name}`;
-    case 'Ground':
+    case 'ground':
       return `🌎 ${name}`;
-    case 'Fairy':
+    case 'fairy':
       return `🧚 ${name}`;
-    case 'Fighting':
+    case 'fighting':
       return `🥊 ${name}`;
-    case 'Psychic':
+    case 'psychic':
       return `🧠 ${name}`;
-    case 'Rock':
+    case 'rock':
       return `🪨 ${name}`;
-    case 'Bug':
+    case 'bug':
       return `🐛 ${name}`;
-    case 'Ghost':
+    case 'ghost':
       return `👻 ${name}`;
-    case 'Dragon':
+    case 'dragon':
       return `🐉 ${name}`;
-    case 'Ice':
+    case 'ice':
       return `🧊 ${name}`;
-    case 'Flying':
+    case 'flying':
       return `🦅 ${name}`;
-    case 'Steel':
+    case 'steel':
       return `⚙️ ${name}`;
-    case 'Dark':
+    case 'dark':
       return `🌚 ${name}`;
-    case 'Normal':
+    case 'normal':
       return `👤 ${name}`;
     default:
       return `👾 ${name}`;
