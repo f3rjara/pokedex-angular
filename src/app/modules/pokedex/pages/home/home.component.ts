@@ -1,9 +1,13 @@
-import { environment } from './../../../../../environments/environment';
+import { environment as env } from '@environments/environment';
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { dummyPokemon, Pokemon } from '@interfaces/pokemon.interface';
+import { Pokemon } from '@interfaces/pokemon.interface';
 import { getTypeWithName } from '@shared/helpers/getTypeWithName';
-import { PokemonService } from '@src/app/core/services/pokemon.service';
+import { PokemonService } from '@core/services/pokemon.service';
 import { Subject, takeUntil } from 'rxjs';
+import {
+  getArrayRandomNumbers,
+  getRandomNumber,
+} from '@shared/helpers/randomNumers';
 
 @Component({
   selector: 'app-home',
@@ -16,16 +20,18 @@ export class HomeComponent implements OnInit, OnDestroy {
   pokemon: Pokemon;
   pokemonName: string = 'Pokemon!';
   idPokemon: number;
+  arrayOtherPokemons: number[] = [];
   private ngUnsubscribe = new Subject();
 
   constructor(private pokemonService: PokemonService) {
-    this.idPokemon = this.getRandomNumer();
+    this.idPokemon = getRandomNumber(1, env.MAX_POKEMONS);
     this.pokemon = {
       id: this.idPokemon,
       name: 'Pokemon',
       image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${this.idPokemon}.svg`,
       features: undefined,
     };
+    this.arrayOtherPokemons = getArrayRandomNumbers(1, env.MAX_POKEMONS, 4);
   }
 
   ngOnInit(): void {
@@ -42,7 +48,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       feature => feature.featureTitle === 'Type'
     );
     if (typePokemon) {
-      console.log(typePokemon);
       this.pokemonName = getTypeWithName(
         typePokemon?.featureValue,
         this.pokemon.name
@@ -50,10 +55,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       return;
     }
     this.pokemonName = getTypeWithName('normal', this.pokemon.name);
-  }
-
-  getRandomNumer(): number {
-    return Math.floor(Math.random() * environment.MAX_POKEMONS) + 1;
   }
 
   getRandonPokemon() {
@@ -66,8 +67,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       });
   }
 
-  changePokemon() {
-    this.idPokemon = this.getRandomNumer();
+  changePokemon(id: number = 0) {
+    this.idPokemon = id || getRandomNumber(1, env.MAX_POKEMONS);
+    if (id == 0) {
+      this.arrayOtherPokemons = getArrayRandomNumbers(1, env.MAX_POKEMONS, 4);
+    }
     this.getRandonPokemon();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

@@ -8,9 +8,10 @@ import { NavbarModule } from '@shared/components/organims/navbar/navbar.module';
 import { SkeletonModule } from '@shared/components/atoms/skeleton/skeleton.module';
 /* Components */
 import { CardFeaturesComponent } from './components/card-features/card-features.component';
+import { OthersPokemonsComponent } from './components/others-pokemons/others-pokemons.component';
 
 @NgModule({
-  declarations: [HomeComponent, CardFeaturesComponent],
+  declarations: [HomeComponent, CardFeaturesComponent, OthersPokemonsComponent],
   imports: [
     CommonModule,
     PokedexRoutingModule,
