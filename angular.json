@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "PRAGMA_angular-basic-system": {
+    "pokedex-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -70,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "PRAGMA_angular-basic-system:build:production"
+              "browserTarget": "pokedex-angular:build:production"
             },
             "development": {
-              "browserTarget": "PRAGMA_angular-basic-system:build:development"
+              "browserTarget": "pokedex-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "PRAGMA_angular-basic-system:build"
+            "browserTarget": "pokedex-angular:build"
           }
         },
         "test": {
