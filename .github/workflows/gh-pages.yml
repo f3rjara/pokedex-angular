@@ -6,38 +6,37 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      
       - name: Install Dependencies
         run: npm install
 
-      - name: Build Production
-        run: npm run build -- --configuration production --base-href=/pokedex-angular/
+      - name: Run tests
+        run: npm run test:headless
 
-      - name: Test
-        run: npm run test
+      - name: Build
+        run: npm run build:prod
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: gh-pages
+          ref: ${{ github.ref }}
 
-      - name: Copy files to deployment folder
-        run: |
-          mkdir -p deployment
-          cp -r dist/* deployment/
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v4
+      - name: Deploy 🚀
+        if: success()
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: deployment
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY_NAME: f3rjara/pokedex-angular
+          BRANCH: gh-pages # The branch the action should deploy to.
+          PUBLISH_DIR: dist/pokedex-angular # The folder the action should deploy.
+          enable_jekyll: true
