@@ -36,7 +36,10 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           publish_branch: gh-pages
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy_key: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: dist/pokedex-angular
           external_repository: f3rjara/pokedex-angular
           enable_jekyll: true
+          user_name: 'Fernando Jaramillo'
+          user_email: 'f3rjara@gmail.com'
+          commit_message: 'Deploying to gh-pages'
