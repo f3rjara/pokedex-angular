@@ -1,12 +1,18 @@
 {
   "name": "pokedex-angular",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "homepage": "https://f3rjara.github.io/pokedex-angular/",
+  "author": {
+    "name": "Fernando Jara",
+    "email": "f3rjara@gmail.com"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
     "build": "ng build --aot --vendor-chunk=true --common-chunk=true --delete-output-path=true",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test-ci": "ng test --watch=false --browsers=ChromeHeadlessCI",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "lint:watch": "nodemon --exec \"npm run lint || exit 1\" --ext ts,html,scss"
