@@ -35,7 +35,7 @@ jobs:
         if: success()
         uses: peaceiris/actions-gh-pages@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          deploy_key: ${{ secrets.DEPLOY_KEY }}
           external_repository: f3rjara/pokedex-angular
           publish_branch: gh-pages
           PUBLISH_DIR: dist/pokedex-angular
