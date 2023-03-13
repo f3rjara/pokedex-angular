@@ -10,9 +10,10 @@
     "ng": "ng",
     "start": "ng serve -o",
     "build": "ng build --aot --vendor-chunk=true --common-chunk=true --delete-output-path=true",
+    "build:prod": "ng build --configuration production --base-href https://f3rjara.github.io/pokedex-angular/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "test-ci": "ng test --watch=false --browsers=ChromeHeadlessCI",
+    "test:headless": "ng test --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "lint:watch": "nodemon --exec \"npm run lint || exit 1\" --ext ts,html,scss"
