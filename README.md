@@ -56,3 +56,43 @@ For the best performance you should have installed and configured the necessary 
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+# PokéDex  🚀
+
+PokéDex is a web application that allows users to search for Pokémon by name or number. The app also allows users to view the details of a Pokémon.
+
+### Desktop app preview 🖥️
+<img title="App in Desktop" alt="PokeDex for Desktop" src="https://raw.githubusercontent.com/f3rjara/pokedex-app/main/docs/assets/img/PokeDex.png">
+
+### Mobile app preview 📲
+<div align="center">
+  <img title="App in Desktop" alt="PokeDex for Mobile" src="https://raw.githubusercontent.com/f3rjara/pokedex-app/main/docs/assets/img/PokeDex-mobile.png" width=300px>
+</div>
+
+## Gitlab Page 📦
+
+Gitlab is a web application that allows users to view the details of a pokemon.
+
+
+*See project from*: [https://f3rjara.github.io/pokedex-app/](https://f3rjara.github.io/pokedex-app/)
+
+
+## Build with 🛠️
+
+Use: HTML, CSS, JS, SCSS, BEM Methodology, API Pokemon, Gitlab Pages, CI
+
+## Contributing 👾
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License 📄
+This project is licensed under the License (MIT) - more at: [MIT](https://choosealicense.com/licenses/mit/)
+
+## Expressions of Gratitude 🎁
+*"El talento no solo hay que encontrarlo, hay que guiarlo en la dirección correcta."*
+[Talent-Pool Pragma](https://www.pragma.com.co/sobre-pragma)
+
+
+## Author 🤖
+[Fernando Jaramillo](https://fernando-jaramillo.com/) @f3rjara - With Pragma 

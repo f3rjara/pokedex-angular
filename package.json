@@ -1,5 +1,5 @@
 {
-  "name": "pragma-angular-basic-system",
+  "name": "pokedex-angular",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
