@@ -1,10 +1,10 @@
 {
-  "name": "pragma-angular-basic-system",
+  "name": "pokedex-angular",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build",
+    "build": "ng build --aot --vendor-chunk=true --common-chunk=true --delete-output-path=true",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
