@@ -31,10 +31,12 @@ jobs:
         with:
           ref: ${{ github.ref }}
           
-     
+   
       - name: Deploy 🚀
         if: success()
         uses: peaceiris/actions-gh-pages@v3
+        env:
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
         with:
           publish_branch: gh-pages
           publish_dir: dist/pokedex-angular
