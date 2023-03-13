@@ -9,7 +9,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build --aot --vendor-chunk=true --common-chunk=true --delete-output-path=true",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test-ci": "ng test --watch=false --browsers=ChromeHeadlessCI",
