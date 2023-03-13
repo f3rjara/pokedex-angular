@@ -17,6 +17,11 @@ jobs:
 
       - name: Build Production
         run: npm run build -- --configuration production --base-href=/pokedex-angular/
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
         
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
