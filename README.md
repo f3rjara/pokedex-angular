@@ -74,7 +74,7 @@ PokéDex is a web application that allows users to search for Pokémon by name o
 Gitlab is a web application that allows users to view the details of a pokemon.
 
 
-*See project from*: [https://f3rjara.github.io/pokedex-app/](https://f3rjara.github.io/pokedex-app/)
+*See project from*: [https://f3rjara.github.io/pokedex-app/](https://f3rjara.github.io/pokedex-angular/)
 
 
 ## Build with 🛠️
