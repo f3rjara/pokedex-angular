@@ -6,27 +6,38 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
+
       - name: Install Dependencies
         run: npm install
 
       - name: Build Production
         run: npm run build -- --configuration production --base-href=/pokedex-angular/
 
-      - name: Checkout
+      - name: Test
+        run: npm run test
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.ref }}
-        
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+          ref: gh-pages
+
+      - name: Copy files to deployment folder
+        run: |
+          mkdir -p deployment
+          cp -r dist/* deployment/
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPOSITORY_NAME: f3rjara/pokedex-angular
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: dist/pokedex-angular
+          FOLDER: deployment
