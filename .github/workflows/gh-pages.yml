@@ -18,8 +18,10 @@ jobs:
       - name: Build Production
         run: npm run build -- --configuration production --base-href=/pokedex-angular/
         
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          branch: gh-pages
-          folder: dist/pokedex-angular
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY_NAME: f3rjara/pokedex-angular.git
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: dist # The folder the action should deploy.
