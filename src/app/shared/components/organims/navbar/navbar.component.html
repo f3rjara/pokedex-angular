@@ -1,0 +1,22 @@
+<nav class="nav" role="navigation">
+  <ul class="navbar" aria-label="main menu">
+    <li class="navbar__item">
+      <a [routerLink]="['/home']" class="navbar__link">
+        <picture>
+          <source
+            srcset="assets/images/logo.svg"
+            type="image/svg+xml"
+            media="(min-width: 40px)" />
+          <img
+            src="assets/images/logo.svg"
+            alt="PokéDex"
+            loading="lazy"
+            width="40px"
+            height="40px"
+            class="navbar__image" />
+        </picture>
+        {{ titleNav }}
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,35 @@
+<app-navbar [titleNav]="titleNav"></app-navbar>
+
+<main class="main">
+  <article class="article-pokedex">
+    <section class="pokemon">
+      <h1 class="pokemon__name">{{ pokemonName }}</h1>
+      <img
+        class="pokemon__image pokemon__image--{{ pokemon.name | lowercase }}"
+        [src]="pokemon.image"
+        [alt]="pokemon.name"
+        width="450"
+        height="450" />
+    </section>
+    <section class="pokemon--card">
+      <app-card-features
+        *ngIf="pokemon.features; else loading"
+        [featuresPokemon]="pokemon.features">
+      </app-card-features>
+      <ng-template #loading>
+        <app-skeleton [repeat]="[1, 2, 3, 4, 5, 6]"></app-skeleton>
+      </ng-template>
+      <button
+        class="btn btn__change"
+        (click)="changePokemon()"
+        [disabled]="pokemon.name === 'Pokemon'">
+        Cambiar Pokemon
+      </button>
+    </section>
+  </article>
+</main>
+
+<app-others-pokemons
+  (eventOnClick)="changePokemon($event)"
+  [otherPokemons]="arrayOtherPokemons">
+</app-others-pokemons>

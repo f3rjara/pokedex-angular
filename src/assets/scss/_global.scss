@@ -1,0 +1,40 @@
+@use './vars' as _vars;
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+  background: _vars.$gray;
+  cursor: pointer;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: _vars.$gray;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: _vars.$primary-color;
+  border-radius: 10px;
+  border: 4px solid _vars.$gray;
+  &:hover {
+    background: _vars.$secondary-color;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: _vars.$font-body;
+}
+
+.main {
+  min-height: 50vh;
+  width: 100%;
+  background-color: _vars.$gray;
+  padding: 5em 0;
+  position: relative;
+}
