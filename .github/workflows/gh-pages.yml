@@ -37,7 +37,7 @@ jobs:
         with:
           publish_branch: gh-pages
           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-          publish_dir: ./docs/build/html
+          publish_dir: ./dist/pokedex-angular
           external_repository: f3rjara/pokedex-angular
           enable_jekyll: true
           user_name: 'Fernando Jaramillo'
